@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Models\DTOs\" />
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
