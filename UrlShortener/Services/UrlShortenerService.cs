@@ -22,14 +22,24 @@
 
         public int Decode(string shortCode)
         {
+            if (string.IsNullOrEmpty(shortCode))
+                throw new ArgumentException("Short code cannot be null or empty", nameof(shortCode));
+
             var result = 0;
 
             foreach (var character in shortCode)
             {
-                result = result * Base + Alphabet.IndexOf(character);
+                var position = Alphabet.IndexOf(character);
+
+                if (position == -1)
+                    throw new ArgumentException($"Invalid character '{character}' in short code", nameof(shortCode));
+
+                result = result * Base + position;
             }
+
             return result;
         }
+
 
         public bool IsValidUrl(string url)
         {
