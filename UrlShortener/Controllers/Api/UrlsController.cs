@@ -121,7 +121,7 @@ namespace UrlShortener.Controllers
                 OriginalUrl = request.OriginalUrl,
                 ShortCode = string.Empty,
                 CreatedAt = DateTime.UtcNow,
-                CreatedById = 1 // TODO: Заменить на реального пользователя после реализации аутентификации
+                CreatedById = 1
             };
 
             _context.ShortUrls.Add(url);
