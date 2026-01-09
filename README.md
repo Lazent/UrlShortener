@@ -121,9 +121,6 @@ npm run build
 
 # Запуск тестов
 npm test
-
-# Запуск с SSR
-npm run serve:ssr:UrlShortener.Client
 ```
 
 ## 📡 API Endpoints
@@ -209,7 +206,7 @@ cd UrlShortener.Client
 npm run build
 ```
 
-Собранные файлы будут в директории `dist/`
+Собранные файлы будут в директории `dist/url-shortener-client/`
 
 ## 🛡️ Безопасность
 
