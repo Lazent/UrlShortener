@@ -1,0 +1,43 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+
+        i {
+            font-size: 1.8rem;
+            vertical-align: middle;
+        }
+    }
+
+    .nav-link {
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        &.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+    }
+
+    .navbar-text {
+        color: rgba(255, 255, 255, 0.9);
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 0.25em 0.5em;
+        }
+    }
+
+    .btn-outline-light {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+}

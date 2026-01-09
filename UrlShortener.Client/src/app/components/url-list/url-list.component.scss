@@ -1,0 +1,46 @@
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border: none;
+  border-radius:  10px;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.table {
+  margin-bottom: 0;
+
+  th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  code {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #e7f3ff;
+    border-radius: 4px;
+  }
+}
+
+.btn-group {
+  .btn {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

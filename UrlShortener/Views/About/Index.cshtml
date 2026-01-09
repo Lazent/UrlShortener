@@ -1,0 +1,104 @@
+﻿@model UrlShortener.Models.Entities.AboutContent
+
+@{
+    ViewData["Title"] = "About - URL Shortener";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">About URL Shortener</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            @Html.Raw(Model.Content)
+        </div>
+        <div class="card-footer text-muted">
+            <small>
+                <i class="bi bi-clock"></i> Last modified: @Model.LastModified. ToString("yyyy-MM-dd HH:mm") UTC
+                @if (Model.LastModifiedBy != null)
+                {
+                    <text> by <strong>@Model.LastModifiedBy.Login</strong></text>
+                }
+            </small>
+        </div>
+    </div>
+
+    @if (ViewBag.IsAdmin == true)
+    {
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-dark text-decoration-none w-100 text-start" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#editForm" 
+                            aria-expanded="false"
+                            aria-controls="editForm">
+                        <i class="bi bi-pencil-square"></i> Edit Content (Admin Only)
+                        <i class="bi bi-chevron-down float-end"></i>
+                    </button>
+                </h5>
+            </div>
+            <div id="editForm" class="collapse">
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> You can use HTML tags.  Bootstrap 5 classes are available.
+                    </div>
+
+                    <form asp-action="Edit" method="post">
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content (HTML):</label>
+                            <textarea class="form-control font-monospace" 
+                                      id="content" 
+                                      name="content" 
+                                      rows="20" 
+                                      required>@Model.Content</textarea>
+                            <div class="form-text">
+                                Use HTML for formatting. Example: <code>&lt;h2&gt;Title&lt;/h2&gt;</code>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-save"></i> Save Changes
+                            </button>
+                            <button type="button" 
+                                    class="btn btn-secondary" 
+                                    data-bs-toggle="collapse" 
+                                    data-bs-target="#editForm">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        setTimeout(function() {
+            var alerts = document.querySelectorAll('. alert-success');
+            alerts.forEach(function(alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert. close();
+            });
+        }, 5000);
+    </script>
+}
