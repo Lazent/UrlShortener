@@ -28,7 +28,7 @@ URL Shortener — это веб-приложение для создания к�
 ### Frontend (UrlShortener.Client)
 - **Framework**: Angular 21
 - **Стилизация**: Tailwind CSS
-- **SSR**: Angular Universal для серверного рендеринга
+- **SSR**: Angular Server-Side Rendering
 - **HTTP клиент**: RxJS для асинхронных операций
 
 ### Тесты (UrlShortener.Tests)
